@@ -57,4 +57,9 @@ endif
 
 endif
 
+config APP_HEARTBEAT_PERIOD_MS
+    int "LED Blink Speed"
+    default 500
+    range 100 2000
+
 source "Kconfig.zephyr"
