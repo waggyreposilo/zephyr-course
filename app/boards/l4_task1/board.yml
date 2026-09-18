@@ -1,0 +1,6 @@
+board:
+  name: l4_task1
+  full_name: Black Pill STM32U585
+  vendor: l4task1
+  socs:
+    - name: stm32u585xx
