@@ -1,0 +1,2 @@
+config BOARD_L5_TASK2
+	select SOC_STM32U585XX
