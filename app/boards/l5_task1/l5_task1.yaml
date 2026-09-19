@@ -1,4 +1,4 @@
-identifier: l4_task1
+identifier: l5_task1
 name: WeAct Studio Black Pill STM32U585 Core Board
 type: mcu
 arch: arm
@@ -17,4 +17,4 @@ supported:
   - rtc
 ram: 784
 flash: 2048
-vendor: l4task1
+vendor: l5task1

@@ -1,4 +1,4 @@
-.. zephyr:board:: l4_task1
+.. zephyr:board:: l5_task1
 
 Overview
 ********
@@ -79,7 +79,7 @@ Programming and Debugging
 
 .. zephyr:board-supported-runners::
 
-The ``l4_task1`` board facilitates firmware flashing via the USB DFU
+The ``l5_task1`` board facilitates firmware flashing via the USB DFU
 bootloader. This method simplifies the process of updating images, although
 it doesn't provide debugging capabilities. However, the board provides header
 pins for the Serial Wire Debug (SWD) interface, which can be used to connect
@@ -99,7 +99,7 @@ bootloader mode and present itself as a USB DFU Mode device. You can program
 the device using the west tool or the STM32CubeProgrammer.
 
 
-Flashing an application to ``l4_task1``
+Flashing an application to ``l5_task1``
 -----------------------------------------------
 
 Here is an example for the :zephyr:code-sample:`hello_world` application.
@@ -111,7 +111,7 @@ as below:
 
 .. zephyr-app-commands::
    :zephyr-app: samples/subsys/usb/console
-   :board: l4_task1
+   :board: l5_task1
    :goals: build flash
    :gen-args: -DCONFIG_BOOT_DELAY=5000
 
@@ -139,7 +139,7 @@ Here is an example for the :zephyr:code-sample:`blinky` application.
 
 .. zephyr-app-commands::
    :zephyr-app: samples/basic/blinky
-   :board: l4_task1
+   :board: l5_task1
    :goals: debug
 
 References
