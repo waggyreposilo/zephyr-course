@@ -1,0 +1,2 @@
+config BOARD_L5_TASK2
+    select BOARD_L5_TASK2_INIT
