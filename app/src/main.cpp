@@ -4,6 +4,8 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/device.h>
 
+#include "include/custom_driver.h"
+
 //#define SLEEP_TIME_MS 1000
 
 /* The devicetree node identifier for the "led0" alias. */
@@ -14,6 +16,9 @@
 //LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
 #define CUSTOM_SENSOR_NODE  DT_NODELABEL(custom_sensor0)
+
+bool invert = false;
+int cycles = 0;
 
 int main(void)
 {
@@ -43,6 +48,11 @@ int main(void)
         ret = sensor_channel_get(dev, SENSOR_CHAN_ALL, &val);
         k_msleep(CONFIG_APP_HEARTBEAT_PERIOD_MS);
 
+        if (++cycles >= 5) {
+            cycles = 0;
+            invert = !invert;
+            custom_driver_set_invert(dev, invert);
+        }
     }
     return 0;
 }
