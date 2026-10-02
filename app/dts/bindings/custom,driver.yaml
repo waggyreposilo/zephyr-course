@@ -1,0 +1,9 @@
+description: Custom Driver binding for Blackpill boards
+compatible: "custom,driver"
+include: base.yaml
+
+properties:
+  led-gpios:
+    description: GPIO pin for the LED
+    type: phandle-array
+    required: true

@@ -1,0 +1,8 @@
+/ {
+
+    custom_sensor0: custom_sensor {
+        compatible = "custom,driver";
+        led-gpios = <&gpioc 13 GPIO_ACTIVE_LOW>;
+        status = "okay";
+    };
+};
