@@ -4,3 +4,8 @@ build
 # West files
 .west
 deps
+
+twister-out/*
+!twister-out/coverage/
+
+twister-out.*/

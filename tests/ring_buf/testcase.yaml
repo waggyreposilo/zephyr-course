@@ -10,4 +10,5 @@ tests:
     platform_allow: 
      - native_sim
      - qemu_x86
-    timeout: 60
+     - blackpill_u585ci/stm32u585xx
+    timeout: 600
