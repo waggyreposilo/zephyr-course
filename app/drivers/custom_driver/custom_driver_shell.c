@@ -25,7 +25,7 @@ static int shell_custom_driver_sample_fetch(const struct shell *shell, size_t ar
     return 0;
 }
 
-static int shell_custom_driver_channel_get(const struct shell *shell, size_t argc, char **argv){
+static int shell_custom_driver_channel_read(const struct shell *shell, size_t argc, char **argv){
     ARG_UNUSED(argc);
     ARG_UNUSED(argv);
 
@@ -90,7 +90,7 @@ static int shell_custom_driver_invert(const struct shell *shell, size_t argc, ch
 
 SHELL_STATIC_SUBCMD_SET_CREATE(sub_custom_driver,
     SHELL_CMD(fetch, NULL, "Calls sensor_sample_fetch", shell_custom_driver_sample_fetch),
-    SHELL_CMD(get, NULL, "Calls sensor_channel_get and prints the result", shell_custom_driver_channel_get),
+    SHELL_CMD(read, NULL, "Calls sensor_channel_get and prints the result", shell_custom_driver_channel_read),
     SHELL_CMD(info, NULL, "Prints Device Name and ready state", shell_custom_driver_info),
     SHELL_CMD_ARG(invert, NULL, "Sets the invert property of the sensor. Usage: invert <0|1>", shell_custom_driver_invert, 2, 0),
     SHELL_SUBCMD_SET_END
