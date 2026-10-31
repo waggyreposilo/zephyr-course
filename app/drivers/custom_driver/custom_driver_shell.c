@@ -4,6 +4,9 @@
 
 #include "include/custom_driver.h"
 
+#define INVERT_MIN 0
+#define INVERT_MAX 1
+
 static int shell_custom_driver_sample_fetch(const struct shell *shell, size_t argc, char **argv){
     ARG_UNUSED(argc);
     ARG_UNUSED(argv);
@@ -66,7 +69,20 @@ static int shell_custom_driver_info(const struct shell *shell, size_t argc, char
 
 static int shell_custom_driver_invert(const struct shell *shell, size_t argc, char **argv){
     if(argc != 2){
-        shell_error(shell, "Invalid number of arguments. Usage: invert <0|1>");
+        shell_error(shell, "Invalid number of arguments. Usage: invert <%d|%d>", INVERT_MIN, INVERT_MAX);
+        return -EINVAL;
+    }
+
+    char *endptr;
+    long invert_value = strtol(argv[1], &endptr, 10);
+
+    if(*endptr != '\0' || argv[1][0] == '\0'){
+        shell_error(shell, "Invalid argument. Not a valid integer: %s", argv[1]);
+        return -EINVAL;
+    }
+
+    if( invert_value < INVERT_MIN || invert_value > INVERT_MAX){
+        shell_error(shell, "Invalid argument. Value %ld is out of range. Usage: invert <%d|%d>", invert_value, INVERT_MIN, INVERT_MAX);
         return -EINVAL;
     }
 
